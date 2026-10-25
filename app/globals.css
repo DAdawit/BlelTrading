@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   BLEL — Design System
+   Signature concept: the "Export Manifest" — the paper trail (waybills,
+   customs stamps, lot tickets, cupping/grading sheets) that follows every
+   sack of coffee, pulses and spice out of Addis Ababa to port. Dashed
+   stitch-lines, rotated ink stamps, mono lot-codes and a stitched sack
+   texture carry that motif through the whole site.
+   ========================================================================== */
+
+:root {
+  --navy-950: #070e17;
+  --navy-900: #0b1726;
+  --navy-800: #13233a;
+  --navy-700: #1b3350;
+  --navy-600: #294a6e;
+
+  --gold-600: #9c7a3a;
+  --gold-500: #b8924a;
+  --gold-400: #c9a868;
+  --gold-100: #ecdfc4;
+
+  --beige-50: #fbf7ee;
+  --beige-100: #f4ecd9;
+  --beige-200: #e9dcbf;
+
+  --ink: #101a28;
+  --ink-soft: #56606e;
+  --white: #ffffff;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- shadcn/ui semantic tokens, mapped to the brand palette ----
+     (used by components/ui/select.jsx and any shadcn primitive added later) */
+  --background: var(--beige-50);
+  --foreground: var(--ink);
+  --card: var(--white);
+  --card-foreground: var(--ink);
+  --popover: var(--white);
+  --popover-foreground: var(--ink);
+  --primary: var(--navy-900);
+  --primary-foreground: var(--beige-50);
+  --secondary: var(--gold-500);
+  --secondary-foreground: var(--navy-950);
+  --muted: var(--beige-100);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--beige-200);
+  --accent-foreground: var(--navy-900);
+  --destructive: #b3432f;
+  --destructive-foreground: var(--white);
+  --border: var(--beige-200);
+  --input: var(--beige-200);
+  --ring: var(--gold-500);
+  --radius: 0.65rem;
+}
+
+/* Base direction-aware tweaks. The rest of the layout uses Tailwind's
+   default (physical) spacing utilities; for a production launch, consider
+   swapping ml-/mr-/pl-/pr- for logical ms-/me-/ps-/pe- utilities so spacing
+   mirrors automatically. Browser default bidi handles text flow either way. */
+[dir="rtl"] .font-mono,
+[dir="rtl"] .manifest-code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--beige-50);
+}
+
+.font-mono, .manifest-code {
+  letter-spacing: 0.04em;
+}
+
+::selection {
+  background: var(--gold-400);
+  color: var(--navy-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Texture — subtle woven jute-sack pattern for dark surfaces */
+.texture-weave {
+  position: relative;
+}
+.texture-weave::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(
+      45deg,
+      var(--beige-50) 0,
+      var(--beige-50) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--beige-50) 0,
+      var(--beige-50) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+}
+
+/* Nav — light background so the navy/gold logo stays legible (no logo
+   color inversion needed) */
+.nav-shell {
+  backdrop-filter: blur(10px);
+  background: rgba(251, 247, 238, 0.92);
+  border-bottom: 1px solid rgba(233, 220, 191, 0.6);
+  transition: background 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.nav-shell.is-scrolled {
+  box-shadow: 0 10px 30px -12px rgba(11, 23, 38, 0.12);
+}
+.nav-link {
+  position: relative;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 1px;
+  background: var(--gold-500);
+  transition: right 0.3s var(--ease-out);
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  right: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out),
+    background 0.25s ease, color 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-gold {
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  color: var(--navy-950);
+  box-shadow: 0 8px 24px -10px rgba(184, 146, 74, 0.65);
+}
+.btn-gold:hover {
+  box-shadow: 0 12px 30px -8px rgba(184, 146, 74, 0.8);
+}
+.btn-outline {
+  border: 1.5px solid rgba(251, 247, 238, 0.5);
+  color: var(--beige-50);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--gold-400);
+  background: rgba(251, 247, 238, 0.06);
+}
+.btn-dark {
+  background: var(--navy-900);
+  color: var(--beige-50);
+}
+.btn-dark:hover {
+  background: var(--navy-800);
+}
+
+/* Ink Stamp */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  transform: rotate(-6deg);
+  font-family: var(--font-plex-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: 0.9;
+  position: relative;
+}
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px dashed currentColor;
+  border-radius: 999px;
+  opacity: 0.6;
+}
+
+/* Ticket / manifest card */
+.manifest-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--beige-200);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out),
+    border-color 0.35s ease;
+}
+.manifest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -20px rgba(11, 23, 38, 0.35);
+  border-color: var(--gold-400);
+}
+.manifest-tear {
+  position: relative;
+  border-top: 1.5px dashed var(--beige-200);
+}
+.manifest-tear::before,
+.manifest-tear::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  background: var(--beige-50);
+  border-radius: 999px;
+}
+.manifest-tear::before {
+  left: -8px;
+}
+.manifest-tear::after {
+  right: -8px;
+}
+
+/* Route line — dotted export path used in hero */
+.route-line {
+  stroke-dasharray: 3 7;
+  animation: dash-move 22s linear infinite;
+}
+@keyframes dash-move {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+/* Reveal-on-scroll (driven by components/motion/Reveal.jsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.section-eyebrow {
+  font-family: var(--font-plex-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+}
+
+.badge-discount {
+  background: var(--gold-500);
+  color: var(--navy-950);
+  font-family: var(--font-plex-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  transform: rotate(-4deg);
+}
+
+.back-to-top {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Timeline connector for process section */
+.timeline-track {
+  background: repeating-linear-gradient(
+    to right,
+    var(--gold-400) 0 8px,
+    transparent 8px 16px
+  );
+  height: 2px;
+}
+@media (max-width: 767px) {
+  .timeline-track-v {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--gold-400) 0 8px,
+      transparent 8px 16px
+    );
+    width: 2px;
+  }
+}
+
+/* Category tabs (gallery / products) */
+.tab-pill {
+  white-space: nowrap;
+  border: 1px solid var(--beige-200);
+  transition: all 0.25s ease;
+}
+.tab-pill.is-active {
+  background: var(--navy-900);
+  color: var(--beige-50);
+  border-color: var(--navy-900);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.6s var(--ease-out);
+}
+.img-zoom:hover img {
+  transform: scale(1.07);
+}
+
+.order-summary {
+  border: 1.5px dashed var(--gold-500);
+  background: var(--gold-100);
+}
