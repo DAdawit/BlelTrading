@@ -1,0 +1,49 @@
+# robots.txt for Blel Trading PLC (https://bleltrading.com)
+# Configured for maximum search engine indexation and AI agent discovery
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Explicit permissions for major AI Search, LLM Agents & Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Sitemaps and AI Agent Documentation
+Sitemap: https://bleltrading.com/sitemap.xml
+# LLM Knowledge Graph & Summary for AI Agents
+# Specification: https://llmstxt.org/
+# Discoverability file: https://bleltrading.com/llms.txt

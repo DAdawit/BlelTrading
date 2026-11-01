@@ -22,14 +22,12 @@ export default function OrderSummary({ product, code, price, discount }) {
           <dd className="manifest-code text-navy-950">{code || "—"}</dd>
         </div>
         <div>
-          <dt className="text-xs uppercase tracking-wide mb-1 text-[--ink-soft]">{t("orderPrice")}</dt>
-          <dd className="font-semibold text-navy-950">{price ? `$${price}` : "—"}</dd>
+          <dt className="text-xs uppercase tracking-wide mb-1 text-[--ink-soft]">{t("orderPricingTerms")}</dt>
+          <dd className="font-semibold text-navy-950">{t("priceOnRequest")}</dd>
         </div>
         <div>
-          <dt className="text-xs uppercase tracking-wide mb-1 text-[--ink-soft]">{t("orderDiscount")}</dt>
-          <dd className="font-semibold text-navy-950">
-            {discount && Number(discount) > 0 ? `${discount}%` : t("discountNone")}
-          </dd>
+          <dt className="text-xs uppercase tracking-wide mb-1 text-[--ink-soft]">{t("incotermsLabel")}</dt>
+          <dd className="manifest-code text-navy-950">FOB Djibouti / Port</dd>
         </div>
       </dl>
     </div>

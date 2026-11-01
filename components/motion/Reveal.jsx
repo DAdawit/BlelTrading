@@ -21,6 +21,13 @@ export default function Reveal({ children, delay = 0, className = "", as: Tag = 
       return;
     }
 
+    // If already in viewport on mount, show immediately without waiting
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -30,7 +37,7 @@ export default function Reveal({ children, delay = 0, className = "", as: Tag = 
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.01, rootMargin: "0px 0px 50px 0px" }
     );
 
     observer.observe(node);

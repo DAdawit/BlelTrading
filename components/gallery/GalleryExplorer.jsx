@@ -16,6 +16,8 @@ export default function GalleryExplorer() {
     () =>
       activeTab === "All"
         ? GALLERY_ITEMS
+        : activeTab === "Videos"
+        ? GALLERY_ITEMS.filter((item) => item.type === "video")
         : GALLERY_ITEMS.filter((item) => item.category === activeTab),
     [activeTab]
   );

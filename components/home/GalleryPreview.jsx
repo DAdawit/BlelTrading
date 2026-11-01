@@ -7,10 +7,10 @@ import useAppStore from "@/Store/useAppStore";
 import { content, languageTranslate } from "@/utils/data";
 
 const PREVIEW_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=700&auto=format&fit=crop", alt: "Coffee lot inspection" },
-  { src: "https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?q=80&w=700&auto=format&fit=crop", alt: "Cleaned pulses" },
-  { src: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=700&auto=format&fit=crop", alt: "Spice blending" },
-  { src: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=700&auto=format&fit=crop", alt: "Sun-drying beds" },
+  { src: "/gallary/cow1.jpg", alt: "Ethiopian Boran cattle export herd" },
+  { src: "/gallary/camel1.jpg", alt: "Pastoral export camels" },
+  { src: "/gallary/coffee1.jpg", alt: "Premium Grade 1 Ethiopian coffee" },
+  { src: "/gallary/Sesame Seed.jpg", alt: "Export-grade Ethiopian sesame seeds" },
 ];
 
 export default function GalleryPreview() {

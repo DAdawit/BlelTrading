@@ -16,7 +16,7 @@ export default function CompanyHighlights() {
         <Reveal className="relative h-[440px] rounded-2xl overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1200&auto=format&fit=crop"
-            alt="Farmer inspecting sun-dried coffee at a Blel partner farm"
+            alt="Agricultural and commodity sourcing in Ethiopia"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

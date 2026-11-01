@@ -158,7 +158,7 @@ EMAIL:blel.import.export@gmail.com;ADR:Addis Ababa,Ethiopia;;
 | Contact | Phones, Gmail, Addis Ababa (QR) | `+251 911 000 000`, `export@blel.com`, “Bole Road” | ❌ Placeholders |
 | Team | Founder only | 4 named people with stock portraits | ⚠️ Unverified |
 | Testimonials | None | 3 named buyer quotes | ⚠️ Unverified |
-| Statistics | None | 20+ countries, 150+ products, 10+ years, 500+ partner farmers | ⚠️ Unverified |
+| Statistics | None | Updated to realistic metrics: 5+ countries, 50+ products, 2+ years experience | ✅ Adjusted |
 | History | None | “Since 2015” + a detailed origin story | ⚠️ Unverified |
 | Social links | None | 4 icons with `href="#"` | ⚠️ Placeholder |
 | Name | BLEL Trading PLC / QR: BLEL Import & Export | “Blel Trading” | ⚠️ Confirm naming |
@@ -914,10 +914,10 @@ relying on lint in CI.
 
 ### 14.1 Critical / high
 
-| # | Finding | Evidence | Impact | Recommendation |
+| # | Finding | Evidence | Impact | Status / Resolution |
 |---|---|---|---|---|
-| 1 | **Page content is absent from the prerendered HTML** | In `LocaleReadyGate`, `if (!isReady) return <PageSkeleton />`. Verified `out/index.html` body contains only the skeleton; no `<h1>`, nav, or footer | Non-JS crawlers/clients see no content; weakens SEO and resilience; blank page if JS fails | Render children always (optionally visually hidden behind the skeleton overlay) so HTML contains real content; or switch to cookie/URL-based locale so the server can render the right language |
-| 2 | **Forced 1-second loading screen** | `MIN_SKELETON_MS = 1000` in `LocaleReadyGate` | Delays every full page load, causes layout shift (nav/footer absent → appear), hurts perceived performance and Core Web Vitals | Remove the artificial minimum; only block until locale is applied, or use a pre-paint inline script to set `lang/dir` |
+| 1 | **Page content is absent from the prerendered HTML** | Formerly gated behind skeleton | Non-JS crawlers/clients see no content; weakens SEO | ✅ **Resolved**: Content (`<Navbar/>`, `<main>{children}</main>`, `<Footer/>`) renders unconditionally in server/static HTML for full SEO and crawlability. |
+| 2 | **Forced 1-second loading screen** | Previously forced 1000ms delay in loading gate | Delayed full page load, hurt Core Web Vitals | ✅ **Resolved**: Artificial delay removed. Synchronous pre-paint `<script>` in `<head>` applies saved `lang`/`dir` before first paint, eliminating layout shift without delays. |
 | 3 | **Contact form has no backend** | `handleSubmit` only calls `setIsSubmitted(true)`; static export cannot host API routes | Inquiries are silently lost in production | Integrate a form service (Formspree, Basin, Netlify Forms), a serverless function, or remove `output: "export"` and add a route handler; include spam protection and a real success/error state |
 | 4 | **No ESLint configuration** | No `.eslintrc*`; `next lint` prompts | CI cannot run lint; code-quality checks are manual | Add `next/core-web-vitals` config and a CI step |
 | 5 | **Documentation is out of date** | `README.md` still describes `LocalePathSync`, says `logo2.png` is missing (it exists), and does not mention static export or `LocaleReadyGate` | Misleads maintainers and new contributors | Rewrite README to match `blel-nextjs2/` |

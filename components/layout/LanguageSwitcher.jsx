@@ -18,10 +18,10 @@ const LanguageSwitcher = () => {
 
   return (
     <Select value={language} onValueChange={(val) => setLanguage(val)}>
-      <SelectTrigger className="w-max bg-transparent [&_svg]:!text-beige-100 hover:bg-white/10 transition-colors relative text-beige-100 gap-1 rounded-full py-2.5 px-3.5 border border-white/25 shadow-[0px_1px_2px_0px_#1018280A] text-sm">
+      <SelectTrigger className="w-max bg-transparent [&_svg]:!text-gold-600 hover:bg-gold-500/10 hover:text-gold-700 transition-colors relative text-gold-600 gap-1.5 rounded-full py-2.5 px-3.5 border border-gold-500/60 hover:border-gold-500 shadow-sm text-sm font-medium">
         <SelectValue placeholder={languageTranslate(language, "selectLanguage")} />
       </SelectTrigger>
-      <SelectContent className="min-w-25 sm:min-w-30">
+      <SelectContent className="min-w-[120px]">
         <SelectGroup>
           <SelectItem value="en">{languageTranslate(language, "english")}</SelectItem>
           {/* NOTE: value fixed to "ar" (Arabic) — the original snippet used

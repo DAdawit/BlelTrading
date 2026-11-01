@@ -15,18 +15,17 @@ const QUICK_LINKS = [
 
 const CATEGORY_KEYS = [
   "categoryCoffee",
+  "categoryLivestock",
   "categoryPulses",
   "categoryOilSeeds",
   "categorySpices",
   "categoryGrains",
-  "categoryHerbs",
 ];
 
 const SOCIALS = [
-  { icon: "fa-facebook-f", label: "Facebook" },
-  { icon: "fa-linkedin-in", label: "LinkedIn" },
-  { icon: "fa-instagram", label: "Instagram" },
-  { icon: "fa-x-twitter", label: "X (Twitter)" },
+  { icon: "fa-whatsapp", label: "WhatsApp", href: "https://wa.me/251922858489" },
+  { icon: "fa-x-twitter", label: "X (Twitter)", href: "https://x.com/kukusha42296" },
+  { icon: "fa-linkedin-in", label: "LinkedIn", href: "https://www.linkedin.com/in/elias-mendaye-3013352bb/" },
 ];
 
 export default function Footer() {
@@ -41,8 +40,8 @@ export default function Footer() {
           <Image
             src="/logo1.png"
             alt={t(companyInfo.companyName)}
-            width={0}
-            height={0}
+            width={240}
+            height={96}
             sizes="100vw"
             className="h-24 w-auto"
           />
@@ -56,11 +55,13 @@ export default function Footer() {
             {SOCIALS.map((s) => (
               <a
                 key={s.label}
-                href="#"
+                href={s.href}
+                target={s.href !== "#" ? "_blank" : undefined}
+                rel={s.href !== "#" ? "noopener noreferrer" : undefined}
                 aria-label={s.label}
-                className="w-9 h-9 rounded-full border border-navy-900/15 flex items-center justify-center text-navy-900 hover:border-gold-500 hover:text-gold-600 transition"
+                className="w-10 h-10 rounded-full border border-navy-900/20 flex items-center justify-center text-navy-900 hover:border-gold-500 hover:text-gold-600 hover:bg-gold-500/5 transition shadow-sm"
               >
-                <i className={`fa-brands ${s.icon} text-sm`}></i>
+                <i className={`fa-brands ${s.icon} text-base`}></i>
               </a>
             ))}
           </div>
@@ -87,7 +88,11 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3 text-sm text-navy-800/70">
             {CATEGORY_KEYS.map((key) => (
-              <li key={key}>{t(key)}</li>
+              <li key={key}>
+                <Link href="/products" className="hover:text-gold-600 transition">
+                  {t(key)}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -98,16 +103,36 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3 text-sm text-navy-800/70">
             <li className="flex items-start gap-3">
-              <i className="fa-solid fa-location-dot mt-1 text-gold-600"></i>
-              {t(companyInfo.address)}
+              <i className="fa-solid fa-location-dot text-base text-gold-600 mt-1 w-5 text-center shrink-0"></i>
+              <span>{t(companyInfo.address)}</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <i className="fa-solid fa-phone text-base text-gold-600 mt-1 w-5 text-center shrink-0"></i>
+              <div className="flex flex-col">
+                <a href="tel:+251922858489" className="hover:text-gold-600 transition-colors">
+                  +251 922 858 489
+                </a>
+                <a href="tel:+251928761835" className="hover:text-gold-600 transition-colors">
+                  +251 928 761 835
+                </a>
+              </div>
             </li>
             <li className="flex items-center gap-3">
-              <i className="fa-solid fa-phone text-gold-600"></i>
-              {t(companyInfo.phone)}
+              <i className="fa-brands fa-whatsapp text-lg text-gold-600 w-5 text-center shrink-0"></i>
+              <a
+                href={companyInfo.whatsapp || "https://wa.me/251922858489"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold-600 transition-colors"
+              >
+                +251 922 858 489 (WhatsApp)
+              </a>
             </li>
             <li className="flex items-center gap-3">
-              <i className="fa-solid fa-envelope text-gold-600"></i>
-              {t(companyInfo.email)}
+              <i className="fa-solid fa-envelope text-base text-gold-600 w-5 text-center shrink-0"></i>
+              <a href={`mailto:${t(companyInfo.email)}`} className="hover:text-gold-600 transition-colors">
+                {t(companyInfo.email)}
+              </a>
             </li>
           </ul>
         </div>
@@ -115,7 +140,17 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-8 border-t border-beige-200 text-xs text-navy-800/50 flex flex-col sm:flex-row gap-2 justify-between">
         <p>&copy; {new Date().getFullYear()} {t(companyInfo.companyName)}. All rights reserved.</p>
-        <p>{t("footerDesignedBy")}</p>
+        <p>
+          {t("developedBy")}{" "}
+          <a
+            href="https://www.linkedin.com/in/dawit-d/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-navy-900/80 hover:text-gold-600 font-medium underline underline-offset-2 transition-colors"
+          >
+            Dawit D.
+          </a>
+        </p>
       </div>
     </footer>
   );

@@ -43,12 +43,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo2.png"
+            src="/logo1.png"
             alt={t(companyInfo.companyName)}
-            width={0}
-            height={0}
+            width={180}
+            height={56}
             sizes="100vw"
             className="h-14 w-auto"
+            priority
           />
         </Link>
 
@@ -82,7 +83,9 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen((v) => !v)}
             className="md:hidden text-navy-900 text-xl w-10 h-10 flex items-center justify-center"
           >
-            <i className={`fa-solid ${isMenuOpen ? "fa-xmark" : "fa-bars"}`}></i>
+            <i
+              className={`fa-solid ${isMenuOpen ? "fa-xmark" : "fa-bars"}`}
+            ></i>
           </button>
         </div>
       </div>

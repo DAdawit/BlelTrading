@@ -34,6 +34,8 @@ export const ui = {
   viewFullGallery: { en: "View Full Gallery", ar: "عرض المعرض الكامل" },
   learnMore: { en: "Learn More", ar: "اعرف المزيد" },
   contactUs: { en: "Contact Us", ar: "اتصل بنا" },
+  whatsappChat: { en: "WhatsApp Chat", ar: "محادثة واتساب" },
+  inquireWhatsApp: { en: "Inquire via WhatsApp", ar: "استفسر عبر واتساب" },
   requestQuotation: { en: "Request Quotation", ar: "اطلب عرض سعر" },
   browseProducts: { en: "Browse Products", ar: "تصفح المنتجات" },
   backToHome: { en: "Back to Home", ar: "العودة إلى الرئيسية" },
@@ -48,6 +50,13 @@ export const ui = {
     ar: "لا توجد منتجات مطابقة لهذا البحث. جرّب اسمًا أو رمزًا مختلفًا.",
   },
   perUnit: { en: "kg", ar: "كجم" },
+  priceOnRequest: { en: "Price on Request", ar: "السعر عند الطلب" },
+  fobDjibouti: { en: "Incoterms: FOB Djibouti / Port of Loading", ar: "شروط التجارة: فوب جيبوتي / ميناء الشحن" },
+  orderPricingTerms: { en: "Pricing Terms", ar: "شروط التسعير" },
+  pricingAvailableNote: {
+    en: "Official export quotations provided upon inquiry, tailored to order volume, packing specifications, and destination port.",
+    ar: "يتم تقديم عروض الأسعار الرسمية للتصدير عند الطلب، ومخصصة حسب حجم الطلب ومواصفات التعبئة وميناء الوجهة.",
+  },
 
   // Product detail page
   backToCatalog: { en: "Back to Catalog", ar: "العودة إلى الكتالوج" },
@@ -65,6 +74,7 @@ export const ui = {
   specCategory: { en: "Category", ar: "الفئة" },
   specCode: { en: "Product Code", ar: "رمز المنتج" },
   specGrade: { en: "Export Grade", ar: "درجة التصدير" },
+  harvestingRegions: { en: "Harvesting Regions & Sourcing", ar: "مناطق الحصاد والتوريد في إثيوبيا" },
   originValue: { en: "Addis Ababa, Ethiopia", ar: "أديس أبابا، إثيوبيا" },
   gradeValue: { en: "Premium / Grade 1", ar: "ممتاز / الدرجة الأولى" },
   productNotFound: { en: "Product Not Found", ar: "المنتج غير موجود" },
@@ -102,6 +112,7 @@ export const ui = {
   footerQuickLinks: { en: "Quick Links", ar: "روابط سريعة" },
   footerCategories: { en: "Categories", ar: "الفئات" },
   footerContact: { en: "Contact", ar: "تواصل معنا" },
+  developedBy: { en: "Developed by", ar: "تم التطوير بواسطة" },
   footerDesignedBy: {
     en: "Designed for international trade, built in Addis Ababa.",
     ar: "مصمم للتجارة الدولية، صُنع في أديس أبابا.",
@@ -109,6 +120,7 @@ export const ui = {
 
   // Categories (shared by product filters, gallery tabs, category cards)
   categoryCoffee: { en: "Coffee", ar: "القهوة" },
+  categoryLivestock: { en: "Livestock", ar: "الماشية والحيوانات الحية" },
   categoryPulses: { en: "Pulses", ar: "البقوليات" },
   categoryOilSeeds: { en: "Oil Seeds", ar: "البذور الزيتية" },
   categorySpices: { en: "Spices", ar: "التوابل" },
@@ -124,10 +136,14 @@ export const ui = {
 export const content = {
   commone: {
     companyInfo: {
-      companyName: { en: "Blel Trading", ar: "بلل تريدينغ" },
-      address: { en: "Bole Road, Addis Ababa, Ethiopia", ar: "طريق بولي، أديس أبابا، إثيوبيا" },
-      phone: { en: "+251 911 000 000", ar: "+251 911 000 000" },
-      email: { en: "export@blel.com", ar: "export@blel.com" },
+      companyName: { en: "Blel Trading PLC", ar: "بلل تريدينغ" },
+      address: { en: "Blel Trading PLC, Addis Ababa, Ethiopia", ar: "بلل تريدينغ، أديس أبابا، إثيوبيا" },
+      phone: { en: "+251 922 858 489 / +251 928 761 835", ar: "+251 922 858 489 / +251 928 761 835" },
+      whatsapp: "https://wa.me/251922858489",
+      whatsappNumber: "+251 922 858 489",
+      twitter: "https://x.com/kukusha42296",
+      linkedin: "https://www.linkedin.com/in/elias-mendaye-3013352bb/",
+      email: { en: "elasnaku89@gmail.com", ar: "elasnaku89@gmail.com" },
       description: {
         en: "A trusted Ethiopian trading company connecting local agricultural producers with international markets.",
         ar: "شركة تجارية إثيوبية موثوقة تربط المنتجين الزراعيين المحليين بالأسواق الدولية.",
@@ -158,25 +174,26 @@ export const content = {
         en: "At BLEL, we believe that every successful partnership is built on trust, integrity, and excellence. Our vision is to connect markets, create opportunities, and deliver value through dependable trading solutions that exceed expectations. We are committed to building lasting relationships with our clients and partners by providing quality products, reliable service, and uncompromising professionalism. As we grow, our promise remains the same: to conduct every business relationship with honesty, respect, and a relentless pursuit of excellence. Thank you for placing your trust in BLEL. We look forward to growing together.",
         ar: "في بلل، نؤمن بأن كل شراكة ناجحة تُبنى على الثقة والنزاهة والتميز. رؤيتنا هي ربط الأسواق، وخلق الفرص، وتقديم القيمة من خلال حلول تجارية موثوقة تفوق التوقعات. نحن ملتزمون ببناء علاقات دائمة مع عملائنا وشركائنا من خلال تقديم منتجات عالية الجودة، وخدمة موثوقة، ومهنية لا تقبل المساومة. ومع نمونا، يبقى وعدنا كما هو: إدارة كل علاقة عمل بصدق واحترام وسعي دؤوب نحو التميز. شكرًا لكم على وضع ثقتكم في بلل. نتطلع إلى النمو معًا.",
       },
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+      image: "/teams/ELIAS MENDAYE.png",
+      linkedin: "https://www.linkedin.com/in/elias-mendaye-3013352bb/",
     },
   },
 
   pages: {
     home: {
       hero: {
-        eyebrow: { en: "Addis Ababa → 20+ Countries", ar: "أديس أبابا ← أكثر من 20 دولة" },
-        title: { en: "Exporting Ethiopia's Finest Products to the World", ar: "نصدّر أجود المنتجات الإثيوبية إلى العالم" },
+        eyebrow: { en: "Addis Ababa → 7+ Countries", ar: "أديس أبابا ← أكثر من 7 دول" },
+        title: { en: "Exporting Ethiopia's Finest Commodities & Livestock", ar: "تصدير أجود السلع الزراعية والماشية الإثيوبية إلى العالم" },
         subtitle: {
-          en: "From highland coffee cherries to stone-milled spice, every lot that leaves our warehouse carries a documented trail of quality — inspected, graded, and shipped by a team that has done this for a decade.",
-          ar: "من ثمار القهوة الجبلية إلى التوابل المطحونة بالحجر، كل شحنة تغادر مستودعنا تحمل سجلًا موثقًا للجودة — يتم فحصها وتصنيفها وشحنها من قبل فريق يعمل في هذا المجال منذ عقد من الزمن.",
+          en: "From premium agricultural harvests, pulses, and oil seeds to quality live cattle, sheep, and camels, every export from Ethiopia carries our documented assurance of health, grading, and reliability.",
+          ar: "من المحاصيل الزراعية الممتازة والبقوليات والبذور الزيتية إلى الماشية الحية عالية الجودة كالأبقار والأغنام والإبل، كل شحنة تصدير من إثيوبيا تحمل ضماننا الموثق بالسلامة والتصنيف والموثوقية.",
         },
         ctaPrimary: { en: "Explore Products", ar: "استكشف المنتجات" },
         ctaSecondary: { en: "Contact Us", ar: "اتصل بنا" },
         stats: [
-          { value: { en: "20+", ar: "+20" }, label: { en: "Countries Served", ar: "دولة نخدمها" } },
-          { value: { en: "150+", ar: "+150" }, label: { en: "Products Exported", ar: "منتج مُصدَّر" } },
-          { value: { en: "10+", ar: "+10" }, label: { en: "Years Experience", ar: "سنوات خبرة" } },
+          { value: { en: "7+", ar: "+7" }, label: { en: "Countries Served", ar: "دولة نخدمها" } },
+          { value: { en: "27+", ar: "+27" }, label: { en: "Products Exported", ar: "منتج مُصدَّر" } },
+          { value: { en: "5+", ar: "+5" }, label: { en: "Years Experience", ar: "سنوات خبرة" } },
         ],
       },
       whyChooseUs: {
@@ -230,22 +247,22 @@ export const content = {
     about: {
       hero: {
         eyebrow: { en: "Our Story", ar: "قصتنا" },
-        title: { en: "A decade of moving Ethiopia's harvest to the world", ar: "عقد من نقل المحصول الإثيوبي إلى العالم" },
+        title: { en: "Connecting Ethiopia's agricultural harvest & livestock to the world", ar: "ربط المحاصيل الزراعية والماشية الإثيوبية بأسواق العالم" },
         description: {
-          en: "BLEL Trading PLC is a trusted Ethiopian trading company dedicated to connecting local agricultural producers with international markets. We specialize in the export of high-quality grains and pulses, delivering products that meet global standards while creating lasting value for our customers and partners. Our export portfolio includes green mung beans, chickpeas, sesame seeds, lentils, and a variety of other agricultural commodities sourced from reliable producers across Ethiopia. Every product is carefully selected, processed and handled to ensure consistent quality, freshness, and traceability. In addition to grains we export salt and cattle.",
-          ar: "بلل تريدينغ ش.م.م هي شركة تجارية إثيوبية موثوقة مكرّسة لربط المنتجين الزراعيين المحليين بالأسواق الدولية. نحن متخصصون في تصدير الحبوب والبقوليات عالية الجودة، ونقدم منتجات تلبي المعايير العالمية مع خلق قيمة دائمة لعملائنا وشركائنا. تشمل محفظة صادراتنا الماش الأخضر والحمص وبذور السمسم والعدس ومجموعة متنوعة من السلع الزراعية الأخرى التي يتم توريدها من منتجين موثوقين في جميع أنحاء إثيوبيا. يتم اختيار كل منتج ومعالجته والتعامل معه بعناية لضمان جودة ثابتة ونضارة وإمكانية تتبع. بالإضافة إلى الحبوب، نصدّر الملح والماشية.",
+          en: "BLEL Trading PLC is a trusted Ethiopian trading company dedicated to connecting local agricultural producers and pastoralists with international markets. We specialize in the export of high-quality grains, pulses, and livestock, delivering products that meet global standards while creating lasting value for our customers and partners. Our export portfolio includes green mung beans, chickpeas, sesame seeds, lentils, quality live cattle, sheep, camels, and a variety of agricultural commodities sourced from reliable regions across Ethiopia. Every product and shipment is carefully selected, inspected, and handled to ensure consistent quality, health certification, and traceability.",
+          ar: "بلل تريدينغ ش.م.م هي شركة تجارية إثيوبية موثوقة مكرّسة لربط المنتجين الزراعيين والرعاة المحليين بالأسواق الدولية. نحن متخصصون في تصدير الحبوب والبقوليات والماشية عالية الجودة، ونقدم منتجات تلبي المعايير العالمية مع خلق قيمة دائمة لعملائنا وشركائنا. تشمل محفظة صادراتنا الماش الأخضر والحمص وبذور السمسم والعدس والأبقار والأغنام والإبل الحية، ومجموعة متنوعة من السلع الزراعية من مناطق موثوقة في جميع أنحاء إثيوبيا.",
         },
       },
       story: {
-        eyebrow: { en: "Since 2015", ar: "منذ 2015" },
-        title: { en: "From a single desk in Addis Ababa", ar: "من مكتب واحد في أديس أبابا" },
+        eyebrow: { en: "Our Roots", ar: "جذورنا" },
+        title: { en: "From a focused trading desk in Addis Ababa", ar: "من مكتب تجاري متخصص في أديس أبابا" },
         paragraph1: {
-          en: "Blel started as a two-person trading desk connecting a handful of highland coffee farmers with a single European roaster. The first shipment — four hundred kilos of washed Yirgacheffe — went out in a rented pickup truck bound for Djibouti port.",
-          ar: "بدأت بلل كمكتب تجاري من شخصين يربط عددًا قليلًا من مزارعي القهوة الجبلية بمحمصة أوروبية واحدة. الشحنة الأولى — أربعمائة كيلوغرام من قهوة يرغاتشيف المغسولة — خرجت في شاحنة صغيرة مستأجرة متجهة إلى ميناء جيبوتي.",
+          en: "BLEL was founded to bridge the gap between Ethiopian agricultural producers, pastoral communities, and international buyers seeking reliable commodity trade and livestock export.",
+          ar: "تأسست بلل لسد الفجوة بين المنتجين الزراعيين والمجتمعات الرعوية في إثيوبيا والمشترين الدوليين الباحثين عن تجارة سلع موثوقة وتصدير ماشية بأعلى المعايير.",
         },
         paragraph2: {
-          en: "Ten years on, that same attention to the paper trail — grading sheets, lot numbers, phytosanitary certificates — now follows every container we load, across six commodity lines and more than twenty destination countries.",
-          ar: "بعد عشر سنوات، لا يزال هذا الاهتمام بالسجل الورقي — أوراق التصنيف، أرقام الدفعات، شهادات الصحة النباتية — يرافق كل حاوية نُحمّلها، عبر ستة خطوط سلعية وأكثر من عشرين دولة وجهة.",
+          en: "With rigorous attention to documentation — quarantine clearance, grading sheets, and customs paperwork — our operations have rapidly expanded across multiple export lines, shipping dependable quality to destination ports worldwide.",
+          ar: "مع اهتمام دقيق بالتوثيق — شهادات الحجر البيطري، وأوراق التصنيف، والتخليص الجمركي — توسعت عملياتنا بسرعة عبر خطوط تصدير متعددة، لنشحن جودة موثوقة إلى موانئ الوجهة حول العالم.",
         },
       },
       mission: {
@@ -302,20 +319,31 @@ export const content = {
           { en: "West Africa", ar: "غرب أفريقيا" },
         ],
         stats: [
-          { value: { en: "20+", ar: "+20" }, label: { en: "Countries Served", ar: "دولة نخدمها" } },
-          { value: { en: "150+", ar: "+150" }, label: { en: "Products Exported", ar: "منتج مُصدَّر" } },
-          { value: { en: "10+", ar: "+10" }, label: { en: "Years Experience", ar: "سنوات خبرة" } },
-          { value: { en: "500+", ar: "+500" }, label: { en: "Partner Farmers", ar: "مزارع شريك" } },
+          { value: { en: "7+", ar: "+7" }, label: { en: "Countries Served", ar: "دولة نخدمها" } },
+          { value: { en: "27+", ar: "+27" }, label: { en: "Products Exported", ar: "منتج مُصدَّر" } },
+          { value: { en: "5+", ar: "+5" }, label: { en: "Years Experience", ar: "سنوات خبرة" } },
+          { value: { en: "53+", ar: "+53" }, label: { en: "Partner Suppliers", ar: "مورّد وشريك" } },
         ],
       },
       team: {
         eyebrow: { en: "Our Team", ar: "فريقنا" },
         title: { en: "The people behind the paperwork", ar: "الأشخاص وراء الأوراق" },
         members: [
-          { name: { en: "Selam Tesfaye", ar: "سلام تسفاي" }, role: { en: "Managing Director", ar: "المديرة العامة" } },
-          { name: { en: "Dawit Alemu", ar: "داويت ألمو" }, role: { en: "Head of Quality Control", ar: "رئيس مراقبة الجودة" } },
-          { name: { en: "Hana Girma", ar: "هنا غيرما" }, role: { en: "Logistics & Documentation", ar: "اللوجستيات والتوثيق" } },
-          { name: { en: "Yonas Bekele", ar: "يوناس بكلي" }, role: { en: "International Sales", ar: "المبيعات الدولية" } },
+          {
+            name: { en: "Elias Mendaye", ar: "إلياس منداي" },
+            role: { en: "Managing Director", ar: "المدير العام" },
+            image: "/teams/ELIAS MENDAYE.png",
+          },
+          {
+            name: { en: "Daniel Tadesse", ar: "دانييل تاديسي" },
+            role: { en: "Head of Quality Control and International Sales", ar: "رئيس مراقبة الجودة والمبيعات الدولية" },
+            image: "/teams/Daniel Tadesse.jpg",
+          },
+          {
+            name: { en: "Yetemegn Mersha", ar: "يتيمن ميرشا" },
+            role: { en: "Logistics & Documentation", ar: "اللوجستيات والتوثيق" },
+            image: "/teams/Yetemegn Mersha.jpg",
+          },
         ],
       },
       cta: { title: { en: "Want to work with a partner who documents everything?", ar: "هل تريد العمل مع شريك يوثّق كل شيء؟" } },

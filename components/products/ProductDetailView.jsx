@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { fmtPrice, discountedPrice } from "@/lib/format";
 import useAppStore from "@/Store/useAppStore";
 import { languageTranslate } from "@/utils/data";
 import { CATEGORY_UI_KEY } from "@/lib/data/products";
@@ -14,22 +13,24 @@ export default function ProductDetailView({ product }) {
 
   if (!product) return null;
 
-  const hasDiscount = product.discount > 0;
-  const finalPrice = discountedPrice(product);
   const name = t(product.name);
   const description = t(product.description);
   const categoryLabel = t(CATEGORY_UI_KEY[product.category]);
-  const unit = t("perUnit");
 
   const orderHref = `/contact?${new URLSearchParams({
     product: name,
     code: product.product_code,
-    price: finalPrice.toFixed(2),
-    discount: String(product.discount),
   }).toString()}`;
 
   const specs = [
-    { label: t("specOrigin"), value: t("originValue") },
+    {
+      label: t("specOrigin"),
+      value: product.origin
+        ? typeof product.origin === "object"
+          ? t(product.origin)
+          : product.origin
+        : t("originValue"),
+    },
     { label: t("specCategory"), value: categoryLabel },
     { label: t("specCode"), value: product.product_code },
     { label: t("specGrade"), value: t("gradeValue") },
@@ -85,16 +86,9 @@ export default function ProductDetailView({ product }) {
                     alt={name}
                     fill
                     sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                    className="object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-110"
                   />
                 </div>
-                {hasDiscount && (
-                  <div className="absolute top-6 right-6 z-20">
-                    <span className="badge-discount shadow-xl scale-125 block px-4 py-2 border border-gold-600/30">
-                      -{product.discount}% {t("discountOff")}
-                    </span>
-                  </div>
-                )}
                 <div className="absolute bottom-8 left-8 z-20 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
                   <div className="stamp text-white border-white bg-white/10 backdrop-blur-md px-6 py-2 shadow-lg">
                     {t("exportReady")}
@@ -110,7 +104,18 @@ export default function ProductDetailView({ product }) {
               <h3 className="font-display text-3xl text-navy-950 mb-6 border-b border-beige-200 pb-5">
                 {t("overview")}
               </h3>
-              <p className="text-lg text-[--ink-soft] leading-relaxed mb-12">{description}</p>
+              <p className="text-lg text-[--ink-soft] leading-relaxed mb-6">{description}</p>
+              {product.harvesting_places && (
+                <div className="mb-10 p-5 rounded-2xl bg-gold-500/5 border border-gold-500/20">
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-gold-600 mb-2 font-semibold">
+                    <i className="fa-solid fa-map-location-dot"></i>
+                    {t("harvestingRegions")}
+                  </div>
+                  <p className="text-sm text-navy-950 leading-relaxed font-medium">
+                    {t(product.harvesting_places)}
+                  </p>
+                </div>
+              )}
             </Reveal>
 
             <Reveal delay={5}>
@@ -139,21 +144,17 @@ export default function ProductDetailView({ product }) {
                       {t("incotermsLabel")}
                     </span>
                   </div>
-                  <div className="flex items-end gap-3 mt-6">
-                    <div className="flex flex-col">
-                      {hasDiscount && (
-                        <span className="line-through text-sm text-[--ink-soft] mb-1">
-                          {fmtPrice(product.price)}
-                        </span>
-                      )}
-                      <span className="font-display text-5xl sm:text-6xl text-navy-950 tracking-tight">
-                        {fmtPrice(finalPrice)}
-                      </span>
-                    </div>
-                    <span className="text-xl text-[--ink-soft] mb-2 font-mono">/ {unit}</span>
+                  <div className="mt-4 mb-2">
+                    <span className="font-display text-3xl sm:text-4xl text-navy-950 tracking-tight block mb-2">
+                      {t("priceOnRequest")}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-gold-600 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
+                      <i className="fa-solid fa-anchor text-[10px]"></i>
+                      {t("fobDjibouti")}
+                    </span>
                   </div>
-                  <p className="text-[13px] text-[--ink-soft] mt-5 italic leading-snug">
-                    * {t("finalPricingNote")}
+                  <p className="text-[13px] text-[--ink-soft] mt-4 leading-relaxed">
+                    {t("pricingAvailableNote")}
                   </p>
                 </div>
 
@@ -171,6 +172,15 @@ export default function ProductDetailView({ product }) {
                       ></i>
                     </span>
                   </Link>
+                  <a
+                    href={`https://wa.me/251922858489?text=${encodeURIComponent(`Hello Blel Trading, I would like to inquire about ${name} (Code: ${product.product_code}).`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-3 py-3 px-4 rounded-xl border border-beige-300 text-navy-950 bg-white hover:bg-beige-100 hover:border-gold-500 text-sm font-medium transition flex items-center justify-center gap-2"
+                  >
+                    <i className="fa-brands fa-whatsapp text-gold-600 text-base"></i>
+                    <span>{t("inquireWhatsApp")}</span>
+                  </a>
                   <p className="text-center text-[10px] tracking-widest text-[--ink-soft] font-mono mt-5">
                     {t("secureExportProcessing")}
                   </p>

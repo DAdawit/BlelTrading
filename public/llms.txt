@@ -1,0 +1,38 @@
+# Blel Trading PLC
+
+> Blel Trading PLC is an Ethiopian import and export company headquartered in Addis Ababa, Ethiopia. We specialize in sourcing, grading, inspecting, and exporting premium Ethiopian agricultural commodities, specialty coffee, and live livestock to international markets across 7+ countries.
+
+## Core Capabilities & Export Commodities
+- **Specialty Arabica Coffee**: Washed Yirgacheffe Grade 1 and Sidamo Natural Grade 2.
+- **Livestock (Live Export)**: Pasture-raised Boran cattle, Somali & Blackhead Persian sheep, and pastoral dromedary camels with strict veterinary quarantine and health certification.
+- **Pulses**: Machine-cleaned Kabuli chickpeas, Desi chickpeas, green mung beans (Masho), non-GMO soya beans, red kidney beans, and white pea beans.
+- **Oil Seeds**: Premium Humera & Metema grade white sesame seeds (Selit) with high oil content.
+- **Grains**: Red sorghum grain (Mashilla) and sun-dried maize (Bekolo).
+- **Spices**: Ethiopian black seed (Tikur Azmud / Nigella Sativa) and Ethiopian Cardamom (Korerima).
+
+## Trade & Shipping Terms
+- **Incoterms**: FOB Djibouti (Port of Loading) and CIF destination ports globally.
+- **Export Documentation**: Full phytosanitary certificates, veterinary quarantine clearance, certificate of origin, and certified grading sheets.
+- **Pricing**: Export pricing provided on request via formal commercial quotation based on volume, packaging, and destination port.
+
+## Company Leadership & Contacts
+- **Managing Director / Founder & CEO**: Elias Mendaye
+- **Head of Quality Control & International Sales**: Daniel Tadesse
+- **Logistics & Documentation**: Yetemegn Mersha
+- **Headquarters**: Addis Ababa, Ethiopia
+- **Phone / Call**: +251 922 858 489 / +251 928 761 835
+- **WhatsApp**: https://wa.me/251922858489 (+251 922 858 489)
+- **Email**: elasnaku89@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/elias-mendaye-3013352bb/
+- **X (Twitter)**: https://x.com/kukusha42296
+- **Developer**: Dawit D. (https://www.linkedin.com/in/dawit-d/)
+
+## Key Pages
+- [Home](https://bleltrading.com/): Company overview, export highlights, and commodity categories.
+- [About Us](https://bleltrading.com/about): Our story, mission, vision, leadership team, and export statistics.
+- [Product Catalog](https://bleltrading.com/products): Complete export catalog with specifications and product codes.
+- [Gallery](https://bleltrading.com/gallery): Photos and videos of coffee, livestock yards, and grain preparation.
+- [Contact Us](https://bleltrading.com/contact): Inquiries, commercial quotation requests, and office location map.
+
+## Detailed Information for LLMs & AI Agents
+For full product specs, lot codes, harvest zones, and complete export parameters, see [llms-full.txt](https://bleltrading.com/llms-full.txt).

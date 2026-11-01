@@ -19,10 +19,10 @@ export default function AboutStory() {
           <p className="text-[--ink-soft] leading-relaxed mb-4">{t(story.paragraph1)}</p>
           <p className="text-[--ink-soft] leading-relaxed">{t(story.paragraph2)}</p>
         </Reveal>
-        <Reveal delay={1} className="order-1 lg:order-2 relative h-[420px] rounded-2xl overflow-hidden">
+        <Reveal delay={1} className="order-1 lg:order-2 relative h-[420px] rounded-2xl overflow-hidden shadow-xl">
           <Image
-            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop"
-            alt="Coffee lot being graded"
+            src="/gallary/coffee4.jpg"
+            alt="Ethiopian agricultural and pastoral export operations"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

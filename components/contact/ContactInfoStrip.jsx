@@ -25,7 +25,37 @@ export default function ContactInfoStrip() {
             </div>
             <div>
               <h3 className="font-semibold text-navy-950 text-sm mb-1">{t(item.titleKey)}</h3>
-              <p className="text-sm text-[--ink-soft]">{item.value}</p>
+              {item.titleKey === "labelPhone" ? (
+                <div className="flex flex-col gap-1.5">
+                  <div className="text-sm text-[--ink-soft] flex flex-wrap items-center gap-x-2">
+                    <a href="tel:+251922858489" className="hover:text-gold-600 transition-colors">
+                      +251 922 858 489
+                    </a>
+                    <span>/</span>
+                    <a href="tel:+251928761835" className="hover:text-gold-600 transition-colors">
+                      +251 928 761 835
+                    </a>
+                  </div>
+                  <a
+                    href={companyInfo.whatsapp || "https://wa.me/251922858489"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[--ink-soft] hover:text-gold-600 font-medium transition-colors"
+                  >
+                    <i className="fa-brands fa-whatsapp text-gold-600"></i>
+                    <span>{t("whatsappChat")} (+251 922 858 489)</span>
+                  </a>
+                </div>
+              ) : item.titleKey === "labelEmail" ? (
+                <a
+                  href={`mailto:${item.value}`}
+                  className="text-sm text-[--ink-soft] hover:text-gold-600 transition-colors"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="text-sm text-[--ink-soft]">{item.value}</p>
+              )}
             </div>
           </Reveal>
         ))}

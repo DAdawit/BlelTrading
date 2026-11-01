@@ -11,6 +11,9 @@ export default function VideoModal({ item, onClose }) {
   useEffect(() => {
     if (!item) return;
     document.body.style.overflow = "hidden";
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+    }
     videoRef.current?.play().catch(() => {});
     const onKeyDown = (e) => {
       if (e.key === "Escape") handleClose();
@@ -51,6 +54,8 @@ export default function VideoModal({ item, onClose }) {
           ref={videoRef}
           src={item.src}
           controls
+          muted
+          playsInline
           className="w-full max-h-[75vh] rounded-lg bg-black"
         />
         <figcaption className="text-center text-beige-100/80 text-sm mt-4">

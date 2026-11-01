@@ -7,12 +7,12 @@ import useAppStore from "@/Store/useAppStore";
 import { content, languageTranslate } from "@/utils/data";
 
 const CATEGORIES = [
-  { key: "categoryCoffee", image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=800&auto=format&fit=crop" },
-  { key: "categoryPulses", image: "https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?q=80&w=800&auto=format&fit=crop" },
-  { key: "categoryOilSeeds", image: "https://images.unsplash.com/photo-1615485500704-8e990f9900f4?q=80&w=800&auto=format&fit=crop" },
-  { key: "categorySpices", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop" },
-  { key: "categoryGrains", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop" },
-  { key: "categoryHerbs", image: "https://images.unsplash.com/photo-1599909533144-e8fef60a9c33?q=80&w=800&auto=format&fit=crop" },
+  { key: "categoryCoffee", image: "/gallary/coffee1.jpg" },
+  { key: "categoryLivestock", image: "/gallary/cow1.jpg" },
+  { key: "categoryPulses", image: "/gallary/Pulses.jpg" },
+  { key: "categoryOilSeeds", image: "/gallary/Sesame Seed.jpg" },
+  { key: "categorySpices", image: "/gallary/Black seed.jpg" },
+  { key: "categoryGrains", image: "/gallary/Sorghum.jpg" },
 ];
 
 export default function Categories() {

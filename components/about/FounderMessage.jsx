@@ -16,17 +16,28 @@ export default function FounderMessage() {
         <div className="grid md:grid-cols-4 gap-10 md:gap-14 items-start">
           {/* Left quarter: founder photo + name */}
           <Reveal className="md:col-span-1 flex flex-col items-center text-center">
-            <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-xl mb-5">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-xl mb-5 bg-beige-200">
               <Image
                 src={founder.image}
                 alt={t(founder.name)}
                 fill
                 sizes="200px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <h3 className="font-display text-xl text-navy-950">{t(founder.name)}</h3>
             <p className="text-xs uppercase tracking-widest text-gold-600 mt-1">{t(founder.role)}</p>
+            {founder.linkedin && (
+              <a
+                href={founder.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-navy-900 hover:text-gold-600 transition-colors mt-3 py-1.5 px-3.5 rounded-full bg-white border border-beige-200 shadow-sm"
+              >
+                <i className="fa-brands fa-linkedin text-sm text-[#0077b5]"></i>
+                <span className="font-medium">LinkedIn</span>
+              </a>
+            )}
           </Reveal>
 
           {/* Right three-quarters: message */}
